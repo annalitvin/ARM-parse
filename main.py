@@ -21,8 +21,8 @@ def extract_sentences_from_pdf(file_path, page_number):
 
 def convert_pdf_to_amr_graph(file_path, stog_model, page_number=1):
     sentences = extract_sentences_from_pdf(file_path=file_path, page_number=page_number)
-    sentences_graphs = tqdm(stog_model.parse_sents(sentences, add_metadata=False))
-    for graph in tqdm(sentences_graphs):
+    sentences_graphs = tqdm(stog_model.parse_sents(sentences, add_metadata=True))
+    for graph in sentences_graphs:
         yield graph
 
 
